@@ -19,15 +19,9 @@ class Products extends BaseController
 
     public function save()
     {
-        // Only accept POST for saving
-        if ($this->request->getMethod() !== 'post') {
-            return redirect()->to('/products/form');
-        }
-
-        $productName = $this->request->getPost('product_name') ?? '';
-
-        // Keep behavior minimal: show a simple confirmation view with the submitted name
-        return view('product_saved', ['name' => $productName]);
+        return "Product saved (this was a POST request).";
     }
 }
+
+
 
