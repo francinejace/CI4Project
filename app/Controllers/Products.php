@@ -19,6 +19,8 @@ class Products extends BaseController
 
     public function save()
     {
-        return "Product saved (this was a POST request).";
+        $productName = $this->request->getPost('product_name');
+        return "Product saved: " . $productName;
     }
 }
+
