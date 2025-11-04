@@ -22,6 +22,3 @@ class Products extends BaseController
         return "Product saved (this was a POST request).";
     }
 }
-
-
-
