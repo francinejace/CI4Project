@@ -6,6 +6,9 @@
         <?php if (isset($validation)): ?>
             <div class="alert alert-danger"><?= $validation->listErrors() ?></div>
         <?php endif; ?>
+        <?php if (isset($error)): ?>
+            <div class="alert alert-danger"><?= esc($error) ?></div>
+        <?php endif; ?>
         <form method="post" action="/register">
             <?= csrf_field() ?>
             <div class="mb-3">

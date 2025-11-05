@@ -37,11 +37,16 @@ class Auth extends BaseController
                 'role' => 'customer',
             ];
 
-            // Insert and get inserted ID
-            $insertId = $userModel->insert($data);
+            // Insert and get inserted ID (wrap to catch DB errors)
+            try {
+                $insertId = $userModel->insert($data);
+            } catch (\Exception $e) {
+                // Return view with error message so user sees what went wrong
+                return view('auth/register', ['validation' => $validation, 'error' => 'Registration failed: ' . $e->getMessage()]);
+            }
 
             if ($insertId === false) {
-                // Unexpected failure
+                // Unexpected failure without exception - surface a generic error
                 return view('auth/register', ['validation' => $validation, 'error' => 'Registration failed. Please try again.']);
             }
 
