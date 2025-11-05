@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body class="bg-beige">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background:#d2b48c;">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background:#ab9271;">
             <div class="container">
                 <a class="navbar-brand" href="/">Coffee Shop</a>
                 <div class="collapse navbar-collapse">

@@ -1,8 +1,22 @@
-:root{
-  --brown:#8b5e3c;
-  --beige:#f5efe6;
+:root {
+    --brown: #8b5e3c;
+    --beige: #f5efe6;
 }
-body.bg-beige{background:var(--beige);}
-.btn-brown{background:var(--brown);color:#fff;border:none}
-.btn-brown:hover{background:#6f452b}
-.card{border-radius:8px}
+
+body.bg-beige {
+    background: var(--beige);
+}
+
+.btn-brown {
+    background: var(--brown);
+    color: #fff;
+    border: none;
+}
+
+.btn-brown:hover {
+    background: #6f452b;
+}
+
+.card {
+    border-radius: 8px;
+}

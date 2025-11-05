@@ -7,7 +7,7 @@
       <div class="card mb-3">
         <div class="card-body">
           <h5><?= esc($item['name']) ?></h5>
-          <p>Price: $<?= esc($item['price']) ?></p>
+          <p>Price: ₱<?= esc(number_format((float)$item['price'], 2)) ?></p>
         </div>
       </div>
     </div>
