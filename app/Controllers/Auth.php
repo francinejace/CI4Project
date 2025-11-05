@@ -10,6 +10,10 @@ class Auth extends BaseController
         helper(['form']);
 
         if ($this->request->getMethod() === 'post') {
+            // Quick debug logs to help diagnose registration issues (safe: do not log passwords)
+            $logger = \Config\Services::logger();
+            $logger->debug('Auth::register - POST received');
+            $logger->debug('Auth::register - post keys: ' . implode(',', array_keys($this->request->getPost())));
             // Use validation service with setRules/run as specified
             $validation = \Config\Services::validation();
 
@@ -39,9 +43,12 @@ class Auth extends BaseController
 
             // Insert and get inserted ID (wrap to catch DB errors)
             try {
+                $logger->debug('Auth::register - inserting user: ' . $data['email']);
                 $insertId = $userModel->insert($data);
+                $logger->debug('Auth::register - insertId: ' . var_export($insertId, true));
             } catch (\Exception $e) {
-                // Return view with error message so user sees what went wrong
+                // Log exception then return view with an error message so user sees what went wrong
+                $logger->error('Auth::register - insert exception: ' . $e->getMessage());
                 return view('auth/register', ['validation' => $validation, 'error' => 'Registration failed: ' . $e->getMessage()]);
             }
 
@@ -64,6 +71,7 @@ class Auth extends BaseController
 
                 // flash confirmation message and redirect to customer dashboard
                 $session->setFlashdata('message', 'Registration successful. You are now logged in.');
+                $logger->info('Auth::register - user auto-logged in id=' . $user['id']);
                 return redirect()->to('/customer');
             }
 
