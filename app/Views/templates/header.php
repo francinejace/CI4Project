@@ -38,4 +38,7 @@
             </div>
         </nav>
 
-        <div class="container my-4">
+            <div class="container my-4">
+                <?php if (session()->getFlashdata('message')): ?>
+                    <div class="alert alert-success"><?= esc(session()->getFlashdata('message')) ?></div>
+                <?php endif; ?>

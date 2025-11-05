@@ -10,6 +10,9 @@ class Auth extends BaseController
         helper(['form']);
 
         if ($this->request->getMethod() === 'post') {
+            // Use validation service with setRules/run as specified
+            $validation = \Config\Services::validation();
+
             $rules = [
                 'name' => 'required|min_length[3]|max_length[150]',
                 'email' => 'required|valid_email|is_unique[users.email]',
@@ -18,19 +21,46 @@ class Auth extends BaseController
                 'password_confirm' => 'matches[password]',
             ];
 
-            if (! $this->validate($rules)) {
-                return view('auth/register', ['validation' => $this->validator]);
+            $validation->setRules($rules);
+
+            if (! $validation->run($this->request->getPost())) {
+                return view('auth/register', ['validation' => $validation]);
             }
 
             $userModel = new UserModel();
 
-            $userModel->save([
+            $data = [
                 'name' => $this->request->getPost('name'),
                 'email' => $this->request->getPost('email'),
                 'username' => $this->request->getPost('username'),
                 'password_hash' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
                 'role' => 'customer',
-            ]);
+            ];
+
+            // Insert and get inserted ID
+            $insertId = $userModel->insert($data);
+
+            if ($insertId === false) {
+                // Unexpected failure
+                return view('auth/register', ['validation' => $validation, 'error' => 'Registration failed. Please try again.']);
+            }
+
+            // Auto-login the newly registered user
+            $user = $userModel->find($insertId);
+
+            if ($user) {
+                $session = session();
+                $session->set('user', [
+                    'id' => $user['id'],
+                    'name' => $user['name'],
+                    'email' => $user['email'],
+                    'role' => $user['role'],
+                ]);
+
+                // flash confirmation message and redirect to customer dashboard
+                $session->setFlashdata('message', 'Registration successful. You are now logged in.');
+                return redirect()->to('/customer');
+            }
 
             return redirect()->to('/login')->with('message', 'Registration successful. Please login.');
         }
