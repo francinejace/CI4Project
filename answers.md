@@ -1,4 +1,4 @@
-# Answers and Explanations (concise)
+ # Answers and Explanations (concise)
 
 Q1 — What is MVC and how does CodeIgniter implement it?
 - MVC (Model-View-Controller) separates concerns: Model handles data, View handles presentation, Controller handles request flow.

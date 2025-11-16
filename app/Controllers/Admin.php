@@ -7,15 +7,38 @@ class Admin extends BaseController
 {
     public function index()
     {
-        $userModel = new UserModel();
-        $users = $userModel->findAll();
+        // Only allow admins
+        $sessionUser = session()->get('user');
+        if (! $sessionUser || ($sessionUser['role'] ?? '') !== 'admin') {
+            // If logged in but not admin, send to customer; otherwise to login
+            if ($sessionUser) {
+                return redirect()->to('/customer');
+            }
+            return redirect()->to('/login');
+        }
 
-        return view('admin/index', ['users' => $users]);
+        $userModel = new UserModel();
+
+        // Use pagination: 10 users per page
+        $perPage = 10;
+        $users = $userModel->orderBy('id', 'ASC')->paginate($perPage);
+        $pager = $userModel->pager;
+
+        return view('admin/index', ['users' => $users, 'pager' => $pager]);
     }
 
     public function edit($id)
     {
         helper(['form']);
+        // Only allow admins
+        $sessionUser = session()->get('user');
+        if (! $sessionUser || ($sessionUser['role'] ?? '') !== 'admin') {
+            if ($sessionUser) {
+                return redirect()->to('/customer');
+            }
+            return redirect()->to('/login');
+        }
+
         $userModel = new UserModel();
         $user = $userModel->find($id);
 
@@ -55,6 +78,15 @@ class Admin extends BaseController
 
     public function delete($id)
     {
+        // Only allow admins
+        $sessionUser = session()->get('user');
+        if (! $sessionUser || ($sessionUser['role'] ?? '') !== 'admin') {
+            if ($sessionUser) {
+                return redirect()->to('/customer');
+            }
+            return redirect()->to('/login');
+        }
+
         $userModel = new UserModel();
         $userModel->delete($id);
         return redirect()->to('/admin')->with('message', 'User deleted');

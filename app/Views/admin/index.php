@@ -31,4 +31,10 @@
     </tbody>
 </table>
 
+<?php if (isset($pager)): ?>
+    <div class="mt-3">
+        <?= $pager->links() ?>
+    </div>
+<?php endif; ?>
+
 <?= view('templates/footer') ?>
