@@ -7,6 +7,8 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('about', 'Pages::about');
 $routes->get('products', 'Products::index');
-$routes->get('products/(:num)', 'Products::details/$1');
-$routes->get('products/save', 'Products::save');
+$routes->get('products/form', function () {
+    return view('product_form');
+}); 
+$routes->post('products/save', 'Products::save');
 
