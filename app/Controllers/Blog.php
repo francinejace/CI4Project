@@ -8,3 +8,4 @@ class Blog extends BaseController
         return "You are viewing blog post with ID: " . $id;
     }
 }
+
