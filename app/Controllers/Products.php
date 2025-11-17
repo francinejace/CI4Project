@@ -4,7 +4,7 @@ class Products extends BaseController {
     public function index() {
         return "This is the product list.";
     }
-    public function details($id) {
+    public function details($id = null) {
         return "Product details for ID: " . $id;
     }
     public function save() {

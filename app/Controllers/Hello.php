@@ -17,3 +17,4 @@ class Hello extends Controller
         return "Hello, " . esc($name);
     }
 }
+
