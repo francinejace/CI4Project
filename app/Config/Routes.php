@@ -14,8 +14,8 @@ $routes->post('products/save', 'Products::save');
 $routes->get('hello', 'Hello::index');
 $routes->get('hello/greet/(:segment)', 'Hello::greet/$1');
 $routes->get('blog/(num)', 'Blog::views/$1');
-$routes->get('blogs'. function(){
-    return view('blog_list')
+$routes->get('blogs'. function() {
+    return view('blog_list');
 });
 
 $routes->setDefaultNamespace('App\Controllers');
