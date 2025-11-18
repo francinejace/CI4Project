@@ -5,3 +5,30 @@ in APPPATH\Config\Routes.php on line 19.
  2 SYSTEMPATH\Boot.php(388): CodeIgniter\CLI\Console->run()
  3 SYSTEMPATH\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
  4 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2025-11-17 12:37:11 --> Error: Object of class Closure could not be converted to string
+[Method: CLI, Route: serve]
+in APPPATH\Config\Routes.php on line 19.
+ 1 SYSTEMPATH\Router\RouteCollection.php(339): require()
+ 2 SYSTEMPATH\CLI\Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 3 SYSTEMPATH\Boot.php(388): CodeIgniter\CLI\Console->run()
+ 4 SYSTEMPATH\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+ 5 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2025-11-17 12:42:06 --> CodeIgniter\Router\Exceptions\RouterException: Router.invalidParameterType
+[Method: GET, Route: blogs]
+in SYSTEMPATH\Router\RouteCollection.php on line 1395.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1395): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1247): CodeIgniter\Router\RouteCollection->buildReverseRoute('blog/(num)', [...])
+ 3 SYSTEMPATH\Common.php(951): CodeIgniter\Router\RouteCollection->reverseRoute('App\\Controllers\\Blog::view', 5)
+ 4 SYSTEMPATH\Helpers\url_helper.php(505): route_to('Blog::view', 5)
+ 5 APPPATH\Views\blog_list.php(10): url_to('Blog::view', 5)
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\CI4Project\\app\\Views\\blog_list.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 8 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('blog_list', [], true)
+ 9 APPPATH\Config\Routes.php(18): view('blog_list')
+10 SYSTEMPATH\CodeIgniter.php(875): CodeIgniter\Router\RouteCollection->{closure:C:\xampp\htdocs\CI4Project\app\Config\Routes.php:17}()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI4Project\\public\\index.php')
