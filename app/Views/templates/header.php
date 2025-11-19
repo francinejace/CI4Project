@@ -8,15 +8,18 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body class="bg-beige">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background:#0d6efd;">
+                <nav class="navbar navbar-expand-lg navbar-dark" style="background:var(--brand-black);">
             <div class="container">
-                <a class="navbar-brand text-white" href="/">Wheels Service</a>
+                                <a class="navbar-brand d-flex align-items-center text-white" href="/">
+                                    <img src="<?= esc(base_url('images/wheels-logo.png')) ?>" alt="Wheels, Inc." class="brand-logo me-2" />
+                                    <span>Wheels, Inc.</span>
+                                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="mainNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link text-white" href="/services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="/brands">Brands</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="/careers">Careers</a></li>
+                                                <li class="nav-item"><a class="nav-link text-white" href="/services">Services</a></li>
+                                                <li class="nav-item"><a class="nav-link text-white" href="/brands">Brands</a></li>
+                                                <li class="nav-item"><a class="nav-link text-white" href="/careers">Careers</a></li>
                         <?php if (session()->get('user')): ?>
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="/customer">Dashboard</a>
