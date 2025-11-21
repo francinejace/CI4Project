@@ -1,28 +1,35 @@
 :root {
     --brand-black: #000000;
-    --brand-red: #d71920;
-    --brand-yellow: #ffd60a;
+    --brand-primary: #ce0f14; /* primary red from Wheels logo */
+    --brand-accent: #f6fe15;  /* accent yellow from Wheels logo */
+    --brand-accent-2: #f6ff12;
+    --brand-brown: #6f491b;
     --brand-dark: #111111;
+    --brand-bg: #f5efe6; /* warm beige background used in footer */
 }
 
 .brand-logo {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
-    border-radius: 50%;
+    border-radius: 6px;
 }
 
 .btn-brand {
-    background: var(--brand-red);
+    background: var(--brand-primary);
     color: #fff;
-    border: 1px solid var(--brand-yellow);
+    border: 1px solid var(--brand-accent);
 }
-.btn-brand:hover { background: #b6161c; color:#fff; }
+.btn-brand:hover { background: #a90b10; color:#fff; }
 
 .hero-red {
-    background: linear-gradient(rgba(0,0,0,0.55), rgba(215,25,32,0.35)), url('/images/hero.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.15)), url('/images/hero.jpg') center/cover no-repeat;
+    /* overlay uses darker tint so text remains readable regardless of the image */
 }
 
-.badge-brand { background: var(--brand-yellow); color: var(--brand-dark); }
+.bg-brand { background: var(--brand-primary) !important; }
+.bg-beige { background: var(--brand-bg) !important; }
+
+.badge-brand { background: var(--brand-accent); color: var(--brand-dark); }
 
 .card { border-radius: 8px; }
