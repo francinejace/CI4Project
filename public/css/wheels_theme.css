@@ -1,0 +1,28 @@
+/* Wheels, Inc. theme placeholders. Replace the hex values below with colors sampled from the uploaded logo. */
+:root {
+  /* Colors sampled from Wheels logo (provided by user) */
+  --wheels-primary: #ce0f14; /* deep red */
+  --wheels-accent:  #f6fe15; /* bright yellow */
+  --wheels-accent-2: #f6ff12; /* alternate yellow */
+  --wheels-brown:   #6f491b; /* brown accent */
+  --wheels-bg:      #ffffff;
+  --wheels-text:    #222222;
+}
+
+/* Basic usage examples */
+body { background-color: var(--wheels-bg); color: var(--wheels-text); }
+.navbar { background-color: var(--wheels-primary); color: #fff; }
+.navbar a { color: #fff; }
+.btn-primary { background-color: var(--wheels-primary); border-color: var(--wheels-primary); color: #fff; }
+.btn-accent  { background-color: var(--wheels-accent); color: #000; }
+.brand-logo { width: 40px; height: 40px; object-fit: contain; }
+.footer { background-color: var(--wheels-brown); color: #fff; }
+
+/* Utility classes to mirror existing style usage */
+.bg-brand { background: var(--wheels-primary) !important; }
+.bg-beige { background: #f5efe6 !important; }
+
+/* Notes:
+ - `darken()` above is a placeholder (not native CSS). Replace with a solid hex if you don't use a preprocessor.
+ - To update colors: change the `--wheels-*` variables to match the logo hex codes.
+*/

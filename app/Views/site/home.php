@@ -1,7 +1,7 @@
 <?= view('templates/header', ['title' => 'Wheels, Inc.']) ?>
 
-<section class="py-5 text-white" style="background:#d71920;">
-        <div class="container py-5 hero-red">
+<section class="py-5 text-white bg-brand">
+    <div class="container py-5 hero-red">
         <div class="col-lg-8">
             <div class="d-flex align-items-center mb-3">
                   <img src="<?= esc(base_url('images/wheels-logo.png')) ?>" alt="Wheels, Inc." class="brand-logo me-2" />

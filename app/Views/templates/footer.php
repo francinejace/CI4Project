@@ -1,6 +1,7 @@
   </div>
-  <footer class="text-center py-4" style="background:#f5efe6;">
-    <div class="container">
+  <footer class="text-center py-4 bg-beige">
+    <div class="container d-flex justify-content-center align-items-center gap-2">
+      <img src="<?= esc(base_url('images/wheels-logo.png')) ?>" alt="Wheels logo" class="brand-logo" />
       <small>&copy; <?= date('Y') ?> Francine Jace Bachiller</small>
     </div>
   </footer>
