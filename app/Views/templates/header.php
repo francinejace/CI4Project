@@ -6,9 +6,10 @@
         <title><?= isset($title) ? $title : 'Wheels Service' ?></title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="<?= base_url('css/wheels_theme.css') ?>">
     </head>
     <body class="bg-beige">
-                <nav class="navbar navbar-expand-lg navbar-dark" style="background:var(--brand-black);">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-brand">
             <div class="container">
                                 <a class="navbar-brand d-flex align-items-center text-white" href="/">
                                     <img src="<?= esc(base_url('images/wheels-logo.png')) ?>" alt="Wheels, Inc." class="brand-logo me-2" />
